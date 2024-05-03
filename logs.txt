@@ -1,0 +1,163 @@
+[03-May-24 17:36:19 - INFO] - apscheduler.scheduler - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+[03-May-24 17:36:19 - INFO] - apscheduler.scheduler - Added job "check_messages" to job store "default"
+[03-May-24 17:36:19 - INFO] - apscheduler.scheduler - Scheduler started
+[03-May-24 17:36:19 - INFO] - bot.bot - MainBot @TeleForwardBot_bot  started! 
+[03-May-24 17:36:20 - INFO] - bot.b_bots - BackupBot @Trends_1_bot  started! 
+[03-May-24 17:36:21 - INFO] - bot.b_bots - BackupBot @Trends_2_bot  started! 
+[03-May-24 17:36:22 - INFO] - bot.b_bots - BackupBot @Trends_3_bot  started! 
+[03-May-24 17:36:23 - INFO] - bot.b_bots - BackupBot @Trends_4_bot  started! 
+[03-May-24 17:36:23 - INFO] - bot.database.database - Tire users loaded successfully
+[03-May-24 17:37:19 - INFO] - apscheduler.executors.default - Running job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:38:19 UTC)" (scheduled at 2024-05-03 17:37:19.137050+00:00)
+[03-May-24 17:37:21 - ERROR] - apscheduler.executors.default - Job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:38:19 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/apscheduler/executors/base_py3.py", line 30, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+  File "/home/runner/TeleForwardBot/bot/plugins/check_chats.py", line 148, in check_messages
+    await app.copy_message(chat_id=user,
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/methods/messages/copy_message.py", line 111, in copy_message
+    return await message.copy(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/types/messages_and_media/message.py", line 3174, in copy
+    return await send_media(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/methods/messages/send_cached_media.py", line 101, in send_cached_media
+    r = await self.invoke(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyropatch/flood_handler/flood_handler.py", line 12, in invoke
+    return await self.old_invoke(*args, **kwargs)
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/methods/advanced/invoke.py", line 79, in invoke
+    r = await self.session.invoke(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/session/session.py", line 389, in invoke
+    return await self.send(query, timeout=timeout)
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/session/session.py", line 357, in send
+    RPCError.raise_it(result, type(data))
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/errors/rpc_error.py", line 91, in raise_it
+    raise getattr(
+pyrogram.errors.exceptions.bad_request_400.InputUserDeactivated: Telegram says: [400 INPUT_USER_DEACTIVATED] - The target user has been deleted/deactivated (caused by "messages.SendMedia")
+[03-May-24 17:38:19 - INFO] - apscheduler.executors.default - Running job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:39:19 UTC)" (scheduled at 2024-05-03 17:38:19.137050+00:00)
+[03-May-24 17:38:20 - ERROR] - apscheduler.executors.default - Job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:39:19 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/apscheduler/executors/base_py3.py", line 30, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+  File "/home/runner/TeleForwardBot/bot/plugins/check_chats.py", line 148, in check_messages
+    await app.copy_message(chat_id=user,
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/methods/messages/copy_message.py", line 111, in copy_message
+    return await message.copy(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/types/messages_and_media/message.py", line 3174, in copy
+    return await send_media(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/methods/messages/send_cached_media.py", line 101, in send_cached_media
+    r = await self.invoke(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyropatch/flood_handler/flood_handler.py", line 12, in invoke
+    return await self.old_invoke(*args, **kwargs)
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/methods/advanced/invoke.py", line 79, in invoke
+    r = await self.session.invoke(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/session/session.py", line 389, in invoke
+    return await self.send(query, timeout=timeout)
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/session/session.py", line 357, in send
+    RPCError.raise_it(result, type(data))
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/errors/rpc_error.py", line 91, in raise_it
+    raise getattr(
+pyrogram.errors.exceptions.bad_request_400.InputUserDeactivated: Telegram says: [400 INPUT_USER_DEACTIVATED] - The target user has been deleted/deactivated (caused by "messages.SendMedia")
+[03-May-24 17:39:19 - INFO] - apscheduler.executors.default - Running job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:40:19 UTC)" (scheduled at 2024-05-03 17:39:19.137050+00:00)
+[03-May-24 17:39:21 - ERROR] - apscheduler.executors.default - Job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:40:19 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/apscheduler/executors/base_py3.py", line 30, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+  File "/home/runner/TeleForwardBot/bot/plugins/check_chats.py", line 148, in check_messages
+    await app.copy_message(chat_id=user,
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/methods/messages/copy_message.py", line 111, in copy_message
+    return await message.copy(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/types/messages_and_media/message.py", line 3174, in copy
+    return await send_media(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/methods/messages/send_cached_media.py", line 101, in send_cached_media
+    r = await self.invoke(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyropatch/flood_handler/flood_handler.py", line 12, in invoke
+    return await self.old_invoke(*args, **kwargs)
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/methods/advanced/invoke.py", line 79, in invoke
+    r = await self.session.invoke(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/session/session.py", line 389, in invoke
+    return await self.send(query, timeout=timeout)
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/session/session.py", line 357, in send
+    RPCError.raise_it(result, type(data))
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/errors/rpc_error.py", line 91, in raise_it
+    raise getattr(
+pyrogram.errors.exceptions.bad_request_400.InputUserDeactivated: Telegram says: [400 INPUT_USER_DEACTIVATED] - The target user has been deleted/deactivated (caused by "messages.SendMedia")
+[03-May-24 17:40:19 - INFO] - apscheduler.executors.default - Running job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:41:19 UTC)" (scheduled at 2024-05-03 17:40:19.137050+00:00)
+[03-May-24 17:40:20 - ERROR] - apscheduler.executors.default - Job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:41:19 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/apscheduler/executors/base_py3.py", line 30, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+  File "/home/runner/TeleForwardBot/bot/plugins/check_chats.py", line 148, in check_messages
+    await app.copy_message(chat_id=user,
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/methods/messages/copy_message.py", line 111, in copy_message
+    return await message.copy(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/types/messages_and_media/message.py", line 3174, in copy
+    return await send_media(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/methods/messages/send_cached_media.py", line 101, in send_cached_media
+    r = await self.invoke(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyropatch/flood_handler/flood_handler.py", line 12, in invoke
+    return await self.old_invoke(*args, **kwargs)
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/methods/advanced/invoke.py", line 79, in invoke
+    r = await self.session.invoke(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/session/session.py", line 389, in invoke
+    return await self.send(query, timeout=timeout)
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/session/session.py", line 357, in send
+    RPCError.raise_it(result, type(data))
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/errors/rpc_error.py", line 91, in raise_it
+    raise getattr(
+pyrogram.errors.exceptions.bad_request_400.InputUserDeactivated: Telegram says: [400 INPUT_USER_DEACTIVATED] - The target user has been deleted/deactivated (caused by "messages.SendMedia")
+[03-May-24 17:40:26 - INFO] - root - Stop signal received (SIGTERM). Exiting...
+[03-May-24 17:40:27 - INFO] - bot.bot - Bot stopped. Bye.
+[03-May-24 17:40:32 - INFO] - apscheduler.scheduler - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+[03-May-24 17:40:32 - INFO] - apscheduler.scheduler - Added job "check_messages" to job store "default"
+[03-May-24 17:40:32 - INFO] - apscheduler.scheduler - Scheduler started
+[03-May-24 17:40:32 - INFO] - bot.bot - MainBot @TeleForwardBot_bot  started! 
+[03-May-24 17:40:33 - INFO] - bot.b_bots - BackupBot @Trends_1_bot  started! 
+[03-May-24 17:40:34 - INFO] - bot.b_bots - BackupBot @Trends_2_bot  started! 
+[03-May-24 17:40:35 - INFO] - bot.b_bots - BackupBot @Trends_3_bot  started! 
+[03-May-24 17:40:36 - INFO] - bot.b_bots - BackupBot @Trends_4_bot  started! 
+[03-May-24 17:40:36 - INFO] - bot.database.database - Tire users loaded successfully
+[03-May-24 17:40:38 - INFO] - root - Stop signal received (SIGTERM). Exiting...
+[03-May-24 17:40:39 - INFO] - bot.bot - Bot stopped. Bye.
+[03-May-24 17:41:42 - INFO] - apscheduler.scheduler - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+[03-May-24 17:41:42 - INFO] - apscheduler.scheduler - Added job "check_messages" to job store "default"
+[03-May-24 17:41:42 - INFO] - apscheduler.scheduler - Scheduler started
+[03-May-24 17:41:43 - INFO] - bot.bot - MainBot @TeleForwardBot_bot  started! 
+[03-May-24 17:41:44 - INFO] - bot.b_bots - BackupBot @Trends_1_bot  started! 
+[03-May-24 17:41:44 - INFO] - bot.b_bots - BackupBot @Trends_2_bot  started! 
+[03-May-24 17:41:45 - INFO] - bot.b_bots - BackupBot @Trends_3_bot  started! 
+[03-May-24 17:41:46 - INFO] - bot.b_bots - BackupBot @Trends_4_bot  started! 
+[03-May-24 17:41:46 - INFO] - bot.database.database - Tire users loaded successfully
+[03-May-24 17:42:42 - INFO] - apscheduler.executors.default - Running job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:43:42 UTC)" (scheduled at 2024-05-03 17:42:42.754196+00:00)
+[03-May-24 17:43:42 - WARNING] - apscheduler.scheduler - Execution of job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:43:42 UTC)" skipped: maximum number of running instances reached (1)
+[03-May-24 17:44:42 - WARNING] - apscheduler.scheduler - Execution of job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:44:42 UTC)" skipped: maximum number of running instances reached (1)
+[03-May-24 17:45:02 - INFO] - apscheduler.executors.default - Job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:45:42 UTC)" executed successfully
+[03-May-24 17:45:42 - INFO] - apscheduler.executors.default - Running job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:46:42 UTC)" (scheduled at 2024-05-03 17:45:42.754196+00:00)
+[03-May-24 17:46:42 - WARNING] - apscheduler.scheduler - Execution of job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:46:42 UTC)" skipped: maximum number of running instances reached (1)
+[03-May-24 17:47:42 - WARNING] - apscheduler.scheduler - Execution of job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:47:42 UTC)" skipped: maximum number of running instances reached (1)
+[03-May-24 17:48:09 - INFO] - apscheduler.executors.default - Job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:48:42 UTC)" executed successfully
+[03-May-24 17:48:42 - INFO] - apscheduler.executors.default - Running job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:49:42 UTC)" (scheduled at 2024-05-03 17:48:42.754196+00:00)
+[03-May-24 17:49:42 - WARNING] - apscheduler.scheduler - Execution of job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:49:42 UTC)" skipped: maximum number of running instances reached (1)
+[03-May-24 17:50:39 - INFO] - apscheduler.executors.default - Job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:50:42 UTC)" executed successfully
+[03-May-24 17:50:42 - INFO] - apscheduler.executors.default - Running job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:51:42 UTC)" (scheduled at 2024-05-03 17:50:42.754196+00:00)
+[03-May-24 17:51:42 - WARNING] - apscheduler.scheduler - Execution of job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:51:42 UTC)" skipped: maximum number of running instances reached (1)
+[03-May-24 17:51:49 - INFO] - root - Stop signal received (SIGTERM). Exiting...
+[03-May-24 17:51:49 - INFO] - bot.bot - Bot stopped. Bye.
+[03-May-24 17:51:49 - ERROR] - apscheduler.executors.default - Job "check_messages (trigger: interval[0:01:00], next run at: 2024-05-03 17:52:42 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/apscheduler/executors/base_py3.py", line 30, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+  File "/home/runner/TeleForwardBot/bot/plugins/check_chats.py", line 148, in check_messages
+    # Remove downloaded file and thumb
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/methods/messages/copy_message.py", line 111, in copy_message
+    return await message.copy(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/types/messages_and_media/message.py", line 3174, in copy
+    return await send_media(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/methods/messages/send_cached_media.py", line 101, in send_cached_media
+    r = await self.invoke(
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyropatch/flood_handler/flood_handler.py", line 12, in invoke
+    return await self.old_invoke(*args, **kwargs)
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/methods/advanced/invoke.py", line 86, in invoke
+    await self.fetch_peers(getattr(r, "users", []))
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/client.py", line 531, in fetch_peers
+    await self.storage.update_peers(parsed_peers)
+  File "/home/runner/TeleForwardBot/.pythonlibs/lib/python3.10/site-packages/pyrogram/storage/sqlite_storage.py", line 129, in update_peers
+    self.conn.executemany(
+sqlite3.ProgrammingError: Cannot operate on a closed database.

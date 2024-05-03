@@ -1,0 +1,13 @@
+pyrogram~=2.0.35
+tgcrypto
+aiohttp
+requests
+pymongo==3.12.2
+dnspython
+motor==2.5.1
+heroku3
+psutil
+pyropatch
+python-dotenv
+apscheduler
+
