@@ -182,6 +182,6 @@ async def check_messages():
     app.USAGES[client_index] -= 1
 
 
-scheduler.add_job(check_messages, "interval", minutes=1)
+scheduler.add_job(check_messages, "interval", minutes=30)
 
 scheduler.start()
