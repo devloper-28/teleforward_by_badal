@@ -56,7 +56,7 @@ Steps to follow:
         await db.add_user(user_id, f"Tire-1")
         await db.load_tire_users()
 
-        asyncio.sleep(2)
+        await asyncio.sleep(2)
 
         try:
             await bot.send_message(
