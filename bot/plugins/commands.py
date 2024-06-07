@@ -34,13 +34,15 @@ If you wish to start copying new messages or copying history from a channel, gro
 
 Steps to follow:
 
-1) Type /id in this bot.
-2) Join this group: [https://t.me/+UYpaPybMaaxjNTY1].
-3) Paste your ID along with your name (e.g., Yourname: Yourid(12345)).
-4) Once you gain access, simply paste the link in the following format:
+1) Congratulations..✅ You got tire 1 access for free.
+2) Type /id & Join this group: [https://t.me/+UYpaPybMaaxjNTY1] if you need paid membership.
+3) Paste your ID along with your name (e.g., Yourname: Yourid(12345)) if need to upgrade tire2 and tire3.
+4) Once you gain free or paid access, simply paste the link in the following format:
 /addsource http://t.me/sadf626/555.
-5) Once you're successfully subscribed to this channel, you won't need to do anything further. Just wait, and all new upcoming content will automatically load in the bot.
+5) Once you get successfully subscribed to this channel message, you won't need to do anything further. Just wait, and all new public upcoming content will automatically load in the bot.
 """)
+6) Note:- Tire 1 members can able to add just one channel, Paid members can able to add more then one channel. 
+
     
     user_id = update.from_user.id
     print("handle_user_trial: {}".format(user_id))
