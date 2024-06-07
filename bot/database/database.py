@@ -5,6 +5,7 @@
 import motor.motor_asyncio
 from pymongo.collection import Collection
 from bot import Config, LOGGER
+import datetime
 
 logger = LOGGER(__name__)
 CACHE = {}
@@ -15,7 +16,56 @@ class Database:
         self._client = motor.motor_asyncio.AsyncIOMotorClient(Config.DATABASE_URI)
         self.db = self._client["FileLeechBot"]
         self.col = self.db["Users"]
+        self.trails = self.db["TrialInfo"]
         self.cache = {}
+    
+
+    async def save_user_trial(self, user_id):
+        """Save user's trial information."""
+        trial_data = {
+            "telegram_id": user_id,
+            "start_date": datetime.datetime.utcnow(),
+            "is_trial_active": True,
+            "notified": False
+        }
+        result = await self.trails.insert_one(trial_data)
+        return result.inserted_id
+
+    async def mark_trial_notified(self, user_id):
+        """Mark trial as notified."""
+        await self.trails.update_one(
+            {"telegram_id": user_id},
+            {"$set": {"notified": True}}
+        )
+
+    async def user_trial_exists(self, user_id):
+        """Check if user's trial information exists."""
+        trial_info = await self.trails.find_one({"telegram_id": user_id})
+        return trial_info is not None
+
+    
+    async def get_user_trial(self, user_id):
+        """Retrieve user's trial information."""
+        trial_info = await self.trails.find_one({"telegram_id": user_id})
+        return trial_info
+    
+
+    async def is_trial_expired(self, user_id, trial_duration_days=Config.TRIAL_DURATION):
+        """Check if user's trial has expired."""
+        trial_info = await self.get_user_trial(user_id)
+        if trial_info:
+            start_date = trial_info.get("start_date")
+            if start_date:
+                expiry_date = start_date + datetime.timedelta(seconds=trial_duration_days)
+                if datetime.datetime.utcnow() > expiry_date:
+                    return True
+        return False
+
+
+    async def get_all_trials(self):
+        trials = await self.trails.find().to_list(length=None)
+        return trials
+
 
     async def load_tire_users(self):
 

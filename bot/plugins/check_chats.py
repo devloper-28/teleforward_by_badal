@@ -1,10 +1,12 @@
+# (c) @AbhiChaudhari @coding_ab on TG
+
 import os
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 from pyrogram import Client, filters, enums
 from pyrogram.types import Message
-from pyrogram.errors import UserBlocked, UsernameNotOccupied, UserDeactivated, InputUserDeactivated, UserIsBlocked
+from pyrogram.errors import UserBlocked, UsernameNotOccupied, UserDeactivated, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
 
 from bot.bot import app
 from bot import Config
@@ -171,6 +173,10 @@ async def check_messages():
                             await db.remove_user(user)
                             continue
 
+                        except PeerIdInvalid:
+                            print(f"Invalid peer ID: {user}")
+                            continue
+
             else:
                 pass
 
@@ -179,9 +185,43 @@ async def check_messages():
             await db.set_last_message(i, message.id)
     except UsernameNotOccupied:
       continue
-    app.USAGES[client_index] -= 1
+
+    except PeerIdInvalid:
+            print(f"Invalid peer ID: {i}")
+            continue
+    finally:
+        app.USAGES[client_index] -= 1
 
 
+
+async def check_all_user_trials():
+    """Check if user's trial has expired."""
+    trials = await db.get_all_trials()
+    for trial in trials:
+        user_id = trial["telegram_id"]
+        notified = trial.get("notified", False)
+        if not notified:
+            trial_expired = await db.is_trial_expired(user_id)
+            if trial_expired:
+                await notify_user(user_id)
+                await db.mark_trial_notified(user_id)
+
+
+async def notify_user(user_id):
+    """Notify user that their trial has expired."""
+    await app.send_message(user_id, 
+        (
+            "Your trial has expired. Please contact support for more information or purchase a new subscription.\n\n"
+            "Tire 2:\nAccess to 3 channels for 15 days\nPrice: ₹250\n\n"
+            "Tire 3:\nAccess to 10 channels for 30 days\nPrice: ₹500\n\n"
+            "Choose your preferred plan and pay to continue messaging.\n\n"
+            "Please connect with admin or messege in group if you need membership"
+        )
+    )
+
+
+# This is to check the trails and notify the users if thier trails expires
+scheduler.add_job(check_all_user_trials, "interval", minutes=Config.TRAIL_CHECK_DURATION)
 scheduler.add_job(check_messages, "interval", minutes=30)
 
 scheduler.start()

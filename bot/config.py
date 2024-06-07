@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) @AlbertEinsteinTG
+# (c) @AbhiChaudhari @coding_ab on TG
 
 import os
 from time import time
@@ -46,4 +46,10 @@ class Config (object):
     
     TIRE_USERS = {k: [] for k in TIRE_LIMITS}
 
+    # 60 * 60 * 24 * 7 # 1 week
+    # This is in seconds
+    TRIAL_DURATION = 60 * 60 * 24 * 7
+    TRIAL_DURATION_TEXT = "7 Days"
+    # This is minutes
+    TRAIL_CHECK_DURATION = 10
 

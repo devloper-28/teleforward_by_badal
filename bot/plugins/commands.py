@@ -15,6 +15,8 @@ from bot import LOGGER, Config
 from bot.database.database import Database
 from bot.helpers.utils import humanbytes, convert_size
 
+from datetime import datetime, timedelta
+
 
 logger = LOGGER(__name__)
 db = Database()
@@ -39,6 +41,53 @@ Steps to follow:
 /addsource http://t.me/sadf626/555.
 5) Once you're successfully subscribed to this channel, you won't need to do anything further. Just wait, and all new upcoming content will automatically load in the bot.
 """)
+    
+    user_id = update.from_user.id
+    print("handle_user_trial: {}".format(user_id))
+    # Check if the user's trial information exists
+    trial_exists = await db.user_trial_exists(user_id)
+    user_info = await db.get_user_info(user_id=user_id)
+
+    if not trial_exists and not user_info:
+        # Save user's trial information if not already exists
+        trial_id = await db.save_user_trial(user_id)
+        print(f"Trial information saved with ID: {trial_id}")
+        await db.remove_user(user_id)
+        await db.add_user(user_id, f"Tire-1")
+        await db.load_tire_users()
+
+        asyncio.sleep(2)
+
+        try:
+            await bot.send_message(
+                user_id,
+                f"You can now enjoy the benefits of Tire-1 trial...!\n\nYou just need to paste the channel link now with starting of /addsource and then LINK, for e.g. ('http://t.me/roughhardsex/12681').\n\nMake sure to add last chat id so it will give you all upcoming content.\n\nIf you are using the free tier, it will expire in {Config.TRIAL_DURATION_TEXT}, and only 1 channel is allowed in your subscription.\n\nUpgrade to a higher tier to enjoy more benefits:\n\nTire 2:\nAccess to 3 channels for 15 days\nPrice: ₹250\n\nTire 3:\nAccess to 10 channels for 30 days\nPrice: ₹500\n\nChoose your preferred plan and pay to continue messaging."
+            )
+        except:
+            pass
+    else:
+        trial_info = await db.get_user_trial(user_id)
+        if trial_info:
+            start_date = trial_info.get("start_date")
+            if start_date:
+                expiry_date = start_date + timedelta(seconds=Config.TRIAL_DURATION)
+                if datetime.utcnow() > expiry_date:
+                    user_info = await db.get_user_info(user_id)
+                    if user_info:
+                        await db.remove_user(user_id)
+                        await db.load_tire_users()
+
+                        await bot.send_message(
+                                user_id,
+                        
+                                        f"You were removed from Trail as your subscription has ended...!\n\n"
+                                        "Pay for a new subscription to continue using the bot:\n\n"
+                                        "Tire 2:\nAccess to 3 channels for 15 days\nPrice: ₹250\n\n"
+                                        "Tire 3:\nAccess to 10 channels for 30 days\nPrice: ₹500\n\n"
+                                        "Choose your preferred plan and pay to continue messaging.\n\n"  
+                                        "Please connect with admin or messege in group if you need membership"     
+                        )
+                        print("Trial expired, user removed")
 
 
 @Client.on_message(filters.private & filters.command(["help"]) & filters.user(Config.AUTH_USERS))
