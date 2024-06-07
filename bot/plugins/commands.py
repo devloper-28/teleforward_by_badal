@@ -41,7 +41,7 @@ Steps to follow:
 /addsource http://t.me/sadf626/555.
 5) Once you get successfully subscribed to this channel message, you won't need to do anything further. Just wait, and all new public upcoming content will automatically load in the bot.
 6) Note :- Tire 1 members can able to add just one channel, Paid members can able to add more then one channel. 
-""").
+""")
 
 
     
