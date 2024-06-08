@@ -48,8 +48,8 @@ class Config (object):
 
     # 60 * 60 * 24 * 7 # 1 week
     # This is in seconds
-    TRIAL_DURATION = 60 * 60 * 24 * 7
-    TRIAL_DURATION_TEXT = "7 Days"
+    TRIAL_DURATION = 60 * 60 * 1
+    TRIAL_DURATION_TEXT = "1 Hour"
     # This is minutes
     TRAIL_CHECK_DURATION = 10
 
