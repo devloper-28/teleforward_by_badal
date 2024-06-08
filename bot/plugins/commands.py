@@ -80,17 +80,20 @@ Steps to follow:
                         await db.remove_user(user_id)
                         await db.load_tire_users()
 
-                        await bot.send_message(
-                                user_id,
-                        
-                                        f"You were removed from Trail as your subscription has ended...!\n\n"
-                                        "Pay for a new subscription to continue using the bot:\n\n"
-                                        "Tire 2:\nAccess to 3 channels for 15 days\nPrice: ₹250\n\n"
-                                        "Tire 3:\nAccess to 10 channels for 30 days\nPrice: ₹500\n\n"
-                                        "Choose your preferred plan and pay to continue messaging.\n\n"  
-                                        "Please connect with admin or messege in group if you need membership"     
-                        )
-                        print("Trial expired, user removed")
+                        try:
+                            await bot.send_message(
+                                    user_id,
+                            
+                                            f"You were removed from Trail as your subscription has ended...!\n\n"
+                                            "Pay for a new subscription to continue using the bot:\n\n"
+                                            "Tire 2:\nAccess to 3 channels for 15 days\nPrice: ₹250\n\n"
+                                            "Tire 3:\nAccess to 10 channels for 30 days\nPrice: ₹500\n\n"
+                                            "Choose your preferred plan and pay to continue messaging.\n\n"  
+                                            "Please connect with admin or messege in group if you need membership"     
+                            )
+                            print("Trial expired, user removed")
+                        except:
+                            pass
 
 
 @Client.on_message(filters.private & filters.command(["help"]) & filters.user(Config.AUTH_USERS))
