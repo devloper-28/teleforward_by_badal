@@ -145,6 +145,10 @@ async def check_messages():
                         except InputUserDeactivated:
                             await db.remove_user(user)
                             continue
+                        
+                        except:
+                            await db.remove_user(user)
+                            continue
                     else:
                         # Remove downloaded file and thumb
                         os.remove(dl)
@@ -177,6 +181,10 @@ async def check_messages():
                             print(f"Invalid peer ID: {user}")
                             continue
 
+                        except:
+                            await db.remove_user(user)
+                            continue
+
             else:
                 pass
 
@@ -189,6 +197,10 @@ async def check_messages():
     except PeerIdInvalid:
             print(f"Invalid peer ID: {i}")
             continue
+
+    except Exception as e:
+        pass
+    
     finally:
         app.USAGES[client_index] -= 1
 
@@ -209,16 +221,34 @@ async def check_all_user_trials():
 
 async def notify_user(user_id):
     """Notify user that their trial has expired."""
-    await app.send_message(user_id, 
-        (
-            "Your trial has expired. Please contact support for more information or purchase a new subscription.\n\n"
-            "Tire 2:\nAccess to 3 channels for 15 days\nPrice: ₹250\n\n"
-            "Tire 3:\nAccess to 10 channels for 30 days\nPrice: ₹500\n\n"
-            "Choose your preferred plan and pay to continue messaging.\n\n"
-            "Please connect with admin or messege in group if you need membership"
+    try:
+        await app.send_message(user_id, 
+            (
+                "Your trial has expired. Please contact support for more information or purchase a new subscription.\n\n"
+                "Tire 2:\nAccess to 3 channels for 15 days\nPrice: ₹250\n\n"
+                "Tire 3:\nAccess to 10 channels for 30 days\nPrice: ₹500\n\n"
+                "Choose your preferred plan and pay to continue messaging.\n\n"
+                "Please connect with admin or messege in group if you need membership"
+            )
         )
-    )
+    except UserBlocked:
+        await db.remove_user(user_id)
 
+    except UserIsBlocked:
+        await db.remove_user(user_id)
+
+    except UserDeactivated:
+        await db.remove_user(user_id)
+
+    except InputUserDeactivated:
+        await db.remove_user(user_id)
+
+    except PeerIdInvalid:
+        print(f"Invalid peer ID: {user_id}")
+
+    except Exception as e:
+        pass
+    
 
 # This is to check the trails and notify the users if thier trails expires
 scheduler.add_job(check_all_user_trials, "interval", minutes=Config.TRAIL_CHECK_DURATION)
