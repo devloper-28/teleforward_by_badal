@@ -217,6 +217,8 @@ async def check_all_user_trials():
             if trial_expired:
                 await notify_user(user_id)
                 await db.mark_trial_notified(user_id)
+                # lets remove the user from db
+                await db.remove_user(user_id)
 
 
 async def notify_user(user_id):
