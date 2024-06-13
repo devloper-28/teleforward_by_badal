@@ -42,14 +42,14 @@ class Config (object):
 
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", 0))
     
-    TIRE_LIMITS = {"Tire-1":1, "Tire-2":3, "Tire-3":10}
+    TIRE_LIMITS = {"Tire-1":5, "Tire-2":10, "Tire-3":40}
     
     TIRE_USERS = {k: [] for k in TIRE_LIMITS}
 
     # 60 * 60 * 24 * 7 # 1 week
     # This is in seconds
-    TRIAL_DURATION = 60 * 60 * 1
-    TRIAL_DURATION_TEXT = "1 Hour"
+    TRIAL_DURATION = 60 * 60 * 24 * 7
+    TRIAL_DURATION_TEXT = "7 Days"
     # This is minutes
     TRAIL_CHECK_DURATION = 10
 
