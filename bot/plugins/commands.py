@@ -30,9 +30,13 @@ Congratulations..✅ You got tire 1 access for free
 
 👇👇..Below are the commands to use this bot..👇👇
 1) Type /addsource https://t.me/pornhub_pr/50   (Note:- You can use any public channel link) 
-2) Once you get successfully subscribed to this channel message, you won't need to do anything further. Just wait for next 30 minutes, and all new public upcoming content will automatically load in the bot as soon as. 
+
+2) Once you get successfully subscribed to this channel message, you won't need to do anything further. Just wait for next 30 minutes, and all new public upcoming content will automatically load in the bot as soon as admin of that channel post something. 
+
 3) Note :- Tire 1 members can able to add just 5 channel and it will expire in 1 week, Paid members can able to add more then 5 channel.
+
 4) If you have any doubt or If you need paid membership then you can contact below admins.
+
 https://t.me/WeRTrends_admin & https://t.me/teleforwardbot_admin 
 """)
 
