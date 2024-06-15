@@ -26,21 +26,14 @@ db = Database()
 async def start (bot, update):
     
     await update.reply_text("""
-🚀 Let's get started!
+Congratulations..✅ You got tire 1 access for free
 
-To begin receiving messages from a channel or group, simply send me its link (ensure it's a public channel). This way, you can conveniently read all your channels within the bot in one feed.
-
-If you wish to start copying new messages or copying history from a channel, group, or bot to your own channel, group, or any private chat, use the corresponding button.
-
-Steps to follow:
-
-1) Congratulations..✅ You got tire 1 access for free.
-2) Type /id & Join this group: [https://t.me/+UYpaPybMaaxjNTY1] if you need paid membership.
-3) Paste your ID along with your name (e.g., Yourname: Yourid(12345)) if need to upgrade tire2 and tire3.
-4) Once you gain free or paid access, simply paste the link in the following format:
-/addsource http://t.me/sadf626/555.
-5) Once you get successfully subscribed to this channel message, you won't need to do anything further. Just wait, and all new public upcoming content will automatically load in the bot.
-6) Note :- Tire 1 members can able to add just one channel, Paid members can able to add more then one channel. 
+👇👇..Below are the commands to use this bot..👇👇
+1) Type /addsource https://t.me/pornhub_pr/50   (Note:- You can use any public channel link) 
+2) Once you get successfully subscribed to this channel message, you won't need to do anything further. Just wait for next 30 minutes, and all new public upcoming content will automatically load in the bot as soon as. 
+3) Note :- Tire 1 members can able to add just 5 channel and it will expire in 1 week, Paid members can able to add more then 5 channel.
+4) If you have any doubt or If you need paid membership then you can contact below admins.
+https://t.me/WeRTrends_admin & https://t.me/teleforwardbot_admin 
 """)
 
 
@@ -86,8 +79,8 @@ Steps to follow:
                             
                                             f"You were removed from Trail as your subscription has ended...!\n\n"
                                             "Pay for a new subscription to continue using the bot:\n\n"
-                                            "Tire 2:\nAccess to 3 channels for 15 days\nPrice: ₹250\n\n"
-                                            "Tire 3:\nAccess to 10 channels for 30 days\nPrice: ₹500\n\n"
+                                            "Tire 2:\nAccess to 10 channels for 15 days\nPrice: ₹250\n\n"
+                                            "Tire 3:\nAccess to 30 channels for 30 days\nPrice: ₹500\n\n"
                                             "Choose your preferred plan and pay to continue messaging.\n\n"  
                                             "Please connect with admin or messege in group if you need membership"     
                             )
