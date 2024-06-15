@@ -29,7 +29,7 @@ async def start (bot, update):
 Congratulations..✅ You got tire 1 access for free
 
 👇👇..Below are the commands to use this bot..👇👇
-1) Type /addsource https://t.me/pornhub_pr/50   (Note:- You can use any public channel link) 
+1) Type /addsource https://t.me/pornhub_pr/50   (Note:- You can use any public channel link & make sure to put /50 as number) 
 
 2) Once you get successfully subscribed to this channel message, you won't need to do anything further. Just wait for next 30 minutes, and all new public upcoming content will automatically load in the bot as soon as admin of that channel post something. 
 
@@ -61,7 +61,7 @@ https://t.me/WeRTrends_admin & https://t.me/teleforwardbot_admin
         try:
             await bot.send_message(
                 user_id,
-                f"You can now enjoy the benefits of Tire-1 trial...!\n\nYou just need to paste the channel link now with starting of /addsource and then LINK, for e.g. ('http://t.me/roughhardsex/12681').\n\nMake sure to add last chat id so it will give you all upcoming content.\n\nIf you are using the free tier, it will expire in {Config.TRIAL_DURATION_TEXT}, and only 1 channel is allowed in your subscription.\n\nUpgrade to a higher tier to enjoy more benefits:\n\nTire 2:\nAccess to 3 channels for 15 days\nPrice: ₹250\n\nTire 3:\nAccess to 10 channels for 30 days\nPrice: ₹500\n\nChoose your preferred plan and pay to continue messaging."
+                f"Congratulations for becoming tire 1 members...!\n\nYou just need to paste the channel link now with starting of /addsource and then LINK, for e.g. ('https://t.me/pornhub_pr/50').\n\nMake sure to add last chat id so it will give you all upcoming content.\n\nIf you are using the free tier, it will expire in {Config.TRIAL_DURATION_TEXT}, and only 5 channel is allowed in your subscription.\n\nUpgrade to a higher tier to enjoy more benefits:\n\nTire 2:\nAccess to 10 channels for 15 days\nPrice: ₹250\n\nTire 3:\nAccess to 30 channels for 30 days\nPrice: ₹500\n\nChoose your preferred plan and pay to continue messaging.\n\nhttps://t.me/WeRTrends_admin & https://t.me/teleforwardbot_admin Contact above if you need or have any doubts"
             )
         except:
             pass
